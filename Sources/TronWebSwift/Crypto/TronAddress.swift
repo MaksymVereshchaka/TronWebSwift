@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import BIP32Swift
+import Base58Swift
 import CryptoSwift
 
 public struct TronAddress: CustomStringConvertible {

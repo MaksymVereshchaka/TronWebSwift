@@ -18,7 +18,9 @@ let package = Package(
         // Dependencies declare other packages that this package depends on.
          .package(url: "https://github.com/apple/swift-protobuf.git", from: "1.18.0"),
          .package(url: "https://github.com/krzyzanowskim/CryptoSwift.git", from: "1.4.2"),
-         .package(url: "https://github.com/mathwallet/Secp256k1Swift.git", from: "1.3.1"),
+         .package(url: "https://github.com/attaswift/BigInt.git", from: "5.0.0"),
+         .package(name: "secp256k1", url: "https://github.com/GigaBitcoin/secp256k1.swift", .upToNextMinor(from: "0.10.0")),
+         .package(url: "https://github.com/mathwallet/Base58Swift.git", from: "0.0.1"),
          .package(url: "https://github.com/mxcl/PromiseKit.git", from: "6.16.2")
     ],
     targets: [
@@ -28,9 +30,10 @@ let package = Package(
             name: "TronWebSwift",
             dependencies: [
                 .product(name: "SwiftProtobuf", package: "swift-protobuf"),
+                "BigInt",
+                "Base58Swift",
                 "CryptoSwift",
-                .product(name: "Secp256k1Swift", package: "Secp256k1Swift"),
-                .product(name: "BIP32Swift", package: "Secp256k1Swift"),
+                "secp256k1",
                 "PromiseKit"
             ]
         ),
